@@ -3,14 +3,15 @@ package com.tinchogaray.formulaunoapp.data
 import com.tinchogaray.formulaunoapp.data.model.Drivers
 import com.tinchogaray.formulaunoapp.data.model.DriversProvider
 import com.tinchogaray.formulaunoapp.data.network.DriversService
+import javax.inject.Inject
 
-class DriversRepository {
-
-    private val api = DriversService()
+class DriversRepository @Inject constructor(
+    private val api: DriversService,
+    private val driversProvider: DriversProvider){
 
     suspend fun getAllDrivers(): List<Drivers> {
         val drivers = api.getAllDrivers()
-        DriversProvider.drivers = drivers
+        driversProvider.drivers = drivers
         return drivers
     }
 }

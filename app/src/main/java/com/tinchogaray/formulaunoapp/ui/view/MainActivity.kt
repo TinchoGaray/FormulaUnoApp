@@ -7,7 +7,9 @@ import androidx.core.view.isVisible
 import androidx.lifecycle.Observer
 import com.tinchogaray.formulaunoapp.databinding.ActivityMainBinding
 import com.tinchogaray.formulaunoapp.ui.viewmodel.DriversViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding

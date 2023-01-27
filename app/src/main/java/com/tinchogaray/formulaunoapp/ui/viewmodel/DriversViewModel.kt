@@ -6,15 +6,18 @@ import androidx.lifecycle.viewModelScope
 import com.tinchogaray.formulaunoapp.data.model.Drivers
 import com.tinchogaray.formulaunoapp.domain.GetDrivers
 import com.tinchogaray.formulaunoapp.domain.GetRandomDriver
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class DriversViewModel : ViewModel() {
+@HiltViewModel
+class DriversViewModel @Inject constructor(
+    private val getDrivers: GetDrivers,
+    private val getRandomDriver: GetRandomDriver
+    ) : ViewModel() {
 
     val driverModel = MutableLiveData<Drivers>()
     val isLoading = MutableLiveData<Boolean>()
-
-    private val getDrivers = GetDrivers()
-    private val getRandomDriver = GetRandomDriver()
 
     fun onCreate() {
         viewModelScope.launch {
