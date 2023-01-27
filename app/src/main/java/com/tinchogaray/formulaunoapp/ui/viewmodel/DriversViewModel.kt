@@ -3,7 +3,7 @@ package com.tinchogaray.formulaunoapp.ui.viewmodel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.tinchogaray.formulaunoapp.data.model.Drivers
+import com.tinchogaray.formulaunoapp.data.model.Driver
 import com.tinchogaray.formulaunoapp.domain.GetDrivers
 import com.tinchogaray.formulaunoapp.domain.GetRandomDriver
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -16,7 +16,7 @@ class DriversViewModel @Inject constructor(
     private val getRandomDriver: GetRandomDriver
     ) : ViewModel() {
 
-    val driverModel = MutableLiveData<Drivers>()
+    val driverModel = MutableLiveData<Driver>()
     val isLoading = MutableLiveData<Boolean>()
 
     fun onCreate() {

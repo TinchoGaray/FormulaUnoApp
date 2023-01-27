@@ -2,7 +2,7 @@ package com.tinchogaray.formulaunoapp.data.model
 
 import com.google.gson.annotations.SerializedName
 
-data class Drivers(
+data class Driver(
     val driverId: String,
     val permanentNumber: String,
     val code: String,

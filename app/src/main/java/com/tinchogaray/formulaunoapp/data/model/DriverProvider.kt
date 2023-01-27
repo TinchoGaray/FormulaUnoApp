@@ -4,10 +4,10 @@ import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
-class DriversProvider @Inject constructor() {
+class DriverProvider @Inject constructor() {
 
     //TODO: Almacenar los drivers en una BD
     //Actualmente se usa la variable para almacenar todos los drivers
-    var drivers: List<Drivers> = emptyList()
+    var drivers: List<Driver> = emptyList()
 
 }
