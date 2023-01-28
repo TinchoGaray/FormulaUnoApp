@@ -4,5 +4,5 @@ import com.google.gson.annotations.SerializedName
 
 data class DriverTable(
     val season: String,
-    @SerializedName("Drivers") val drivers: List<Driver>
+    @SerializedName("Drivers") val drivers: List<DriverModel>
 )

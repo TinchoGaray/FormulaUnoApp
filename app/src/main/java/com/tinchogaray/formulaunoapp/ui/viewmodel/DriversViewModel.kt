@@ -3,9 +3,10 @@ package com.tinchogaray.formulaunoapp.ui.viewmodel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.tinchogaray.formulaunoapp.data.model.Driver
+import com.tinchogaray.formulaunoapp.data.model.DriverModel
 import com.tinchogaray.formulaunoapp.domain.GetDrivers
 import com.tinchogaray.formulaunoapp.domain.GetRandomDriver
+import com.tinchogaray.formulaunoapp.domain.model.Driver
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -34,11 +35,13 @@ class DriversViewModel @Inject constructor(
     }
 
     fun randomDriver() {
-        isLoading.postValue(true)
-        val driver = getRandomDriver()
-        driver?.let {
-            driverModel.postValue(it)
+        viewModelScope.launch {
+            isLoading.postValue(true)
+            val driver = getRandomDriver()
+            driver?.let {
+                driverModel.postValue(it)
+            }
+            isLoading.postValue(false)
         }
-        isLoading.postValue(false)
     }
 }

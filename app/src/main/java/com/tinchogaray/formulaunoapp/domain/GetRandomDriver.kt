@@ -1,16 +1,14 @@
 package com.tinchogaray.formulaunoapp.domain
 
 import com.tinchogaray.formulaunoapp.data.DriversRepository
-import com.tinchogaray.formulaunoapp.data.model.Driver
-import com.tinchogaray.formulaunoapp.data.model.DriverProvider
+import com.tinchogaray.formulaunoapp.data.model.DriverModel
+import com.tinchogaray.formulaunoapp.domain.model.Driver
 import javax.inject.Inject
 
-class GetRandomDriver @Inject constructor(
-    private val repository: DriversRepository,
-    private val driverProvider: DriverProvider) {
+class GetRandomDriver @Inject constructor(private val repository: DriversRepository) {
 
-    operator fun invoke(): Driver? {
-        val allDrivers = driverProvider.drivers
+    suspend operator fun invoke(): Driver? {
+        val allDrivers = repository.getAllDriversFromDatabase()
         return if (allDrivers.isNotEmpty()) {
             val randomNumber = (allDrivers.indices).random()
             allDrivers[randomNumber]
