@@ -3,9 +3,8 @@ package com.tinchogaray.formulaunoapp.ui.viewmodel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.tinchogaray.formulaunoapp.data.model.DriverModel
-import com.tinchogaray.formulaunoapp.domain.GetDrivers
-import com.tinchogaray.formulaunoapp.domain.GetRandomDriver
+import com.tinchogaray.formulaunoapp.domain.driver.GetDrivers
+import com.tinchogaray.formulaunoapp.domain.driver.GetRandomDriver
 import com.tinchogaray.formulaunoapp.domain.model.Driver
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch

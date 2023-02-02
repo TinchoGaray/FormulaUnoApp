@@ -1,4 +1,4 @@
-package com.tinchogaray.formulaunoapp.data.model
+package com.tinchogaray.formulaunoapp.data.model.driver
 
 import com.google.gson.annotations.SerializedName
 

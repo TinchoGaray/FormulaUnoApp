@@ -1,7 +1,6 @@
-package com.tinchogaray.formulaunoapp.domain
+package com.tinchogaray.formulaunoapp.domain.driver
 
 import com.tinchogaray.formulaunoapp.data.DriversRepository
-import com.tinchogaray.formulaunoapp.data.model.DriverModel
 import com.tinchogaray.formulaunoapp.domain.model.Driver
 import javax.inject.Inject
 

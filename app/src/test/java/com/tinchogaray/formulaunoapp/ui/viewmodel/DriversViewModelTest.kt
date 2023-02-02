@@ -1,8 +1,8 @@
 package com.tinchogaray.formulaunoapp.ui.viewmodel
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
-import com.tinchogaray.formulaunoapp.domain.GetDrivers
-import com.tinchogaray.formulaunoapp.domain.GetRandomDriver
+import com.tinchogaray.formulaunoapp.domain.driver.GetDrivers
+import com.tinchogaray.formulaunoapp.domain.driver.GetRandomDriver
 import com.tinchogaray.formulaunoapp.domain.model.Driver
 import io.mockk.MockKAnnotations
 import io.mockk.coEvery

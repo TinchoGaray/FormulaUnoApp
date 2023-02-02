@@ -1,6 +1,7 @@
 package com.tinchogaray.formulaunoapp.domain
 
 import com.tinchogaray.formulaunoapp.data.DriversRepository
+import com.tinchogaray.formulaunoapp.domain.driver.GetRandomDriver
 import com.tinchogaray.formulaunoapp.domain.model.Driver
 import io.mockk.MockKAnnotations
 import io.mockk.coEvery

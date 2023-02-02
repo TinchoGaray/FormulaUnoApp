@@ -1,7 +1,7 @@
 package com.tinchogaray.formulaunoapp.domain.model
 
 import com.tinchogaray.formulaunoapp.data.database.entity.DriverEntity
-import com.tinchogaray.formulaunoapp.data.model.DriverModel
+import com.tinchogaray.formulaunoapp.data.model.driver.DriverModel
 
 //Modelo que va a utilizar la UI y el dominio
 data class Driver(
