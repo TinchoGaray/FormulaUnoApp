@@ -4,6 +4,8 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Android/FormulaUno/app/src/main/res/layout/activity_main.xml" value="0.33" />
+        <entry key="..\:/Android/FormulaUno/app/src/main/res/layout/activity_schedules_list.xml" value="0.21240942028985507" />
+        <entry key="..\:/Android/FormulaUno/app/src/main/res/layout/schedule_race_item.xml" value="0.5" />
       </map>
     </option>
   </component>

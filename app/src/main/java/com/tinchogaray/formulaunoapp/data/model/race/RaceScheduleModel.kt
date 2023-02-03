@@ -2,7 +2,7 @@ package com.tinchogaray.formulaunoapp.data.model.race
 
 import com.google.gson.annotations.SerializedName
 
-data class RaceModel(
+data class RaceScheduleModel(
     val season: String,
     val round: String,
     val url: String,
@@ -10,8 +10,8 @@ data class RaceModel(
     @SerializedName("Circuit") val circuit: CircuitModel,
     val date: String,
     val time: String,
-    @SerializedName("FirstPractice") val firstPractice: RaceSchedule,
-    @SerializedName("SecondPractice") val secondPractice: RaceSchedule,
-    @SerializedName("ThirdPractice") val thirdPractice: RaceSchedule,
-    @SerializedName("Qualifying") val qualifying: RaceSchedule
+    @SerializedName("FirstPractice") val firstPractice: RaceDate,
+    @SerializedName("SecondPractice") val secondPractice: RaceDate,
+    @SerializedName("ThirdPractice") val thirdPractice: RaceDate,
+    @SerializedName("Qualifying") val qualifying: RaceDate
 )

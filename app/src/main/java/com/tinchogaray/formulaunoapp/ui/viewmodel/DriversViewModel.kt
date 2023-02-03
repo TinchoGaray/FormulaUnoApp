@@ -16,7 +16,7 @@ class DriversViewModel @Inject constructor(
     private val getRandomDriver: GetRandomDriver
     ) : ViewModel() {
 
-    val driverModel = MutableLiveData<Driver>()
+    val driver = MutableLiveData<Driver>()
     val isLoading = MutableLiveData<Boolean>()
 
     fun onCreate() {
@@ -25,7 +25,7 @@ class DriversViewModel @Inject constructor(
             val result = getDrivers()
 
             if (result.isNotEmpty()) {
-                driverModel.postValue(result.first())
+                driver.postValue(result.first())
                 viewModelScope.launch {
                     isLoading.postValue(false)
                 }
@@ -36,9 +36,9 @@ class DriversViewModel @Inject constructor(
     fun randomDriver() {
         viewModelScope.launch {
             isLoading.postValue(true)
-            val driver = getRandomDriver()
-            driver?.let {
-                driverModel.postValue(it)
+            val randomDriver = getRandomDriver()
+            randomDriver?.let {
+                driver.postValue(it)
             }
             isLoading.postValue(false)
         }

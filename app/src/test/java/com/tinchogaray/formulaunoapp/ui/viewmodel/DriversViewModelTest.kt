@@ -55,7 +55,7 @@ class DriversViewModelTest {
 
         driversViewModel.onCreate()
 
-        assertEquals(driversViewModel.driverModel.value, firstDriver)
+        assertEquals(driversViewModel.driver.value, firstDriver)
     }
 
     @Test
@@ -65,17 +65,17 @@ class DriversViewModelTest {
 
         driversViewModel.randomDriver()
 
-        assertEquals(driversViewModel.driverModel.value, driver)
+        assertEquals(driversViewModel.driver.value, driver)
     }
 
     @Test
     fun `when randomDriver is called and getRandomDriver return null then keep the last value`() = runTest {
         val driver: Driver = mockk(relaxed = true)
-        driversViewModel.driverModel.value = driver
+        driversViewModel.driver.value = driver
         coEvery { getRandomDriver() } returns null
 
         driversViewModel.randomDriver()
 
-        assertEquals(driversViewModel.driverModel.value, driver)
+        assertEquals(driversViewModel.driver.value, driver)
     }
 }

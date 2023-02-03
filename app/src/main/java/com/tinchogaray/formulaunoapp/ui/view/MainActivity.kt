@@ -23,7 +23,7 @@ class MainActivity : AppCompatActivity() {
 
         driversViewModel.onCreate()
 
-        driversViewModel.driverModel.observe(this, Observer {
+        driversViewModel.driver.observe(this, Observer {
             binding.tvDriverName.text = it.name + " " + it.lastName
             binding.tvDriverNumber.text = it.number
         })
