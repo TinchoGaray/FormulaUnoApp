@@ -13,5 +13,6 @@ data class RaceScheduleModel(
     @SerializedName("FirstPractice") val firstPractice: RaceDate,
     @SerializedName("SecondPractice") val secondPractice: RaceDate,
     @SerializedName("ThirdPractice") val thirdPractice: RaceDate,
+    @SerializedName("Sprint") val sprint: RaceDate,
     @SerializedName("Qualifying") val qualifying: RaceDate
 )

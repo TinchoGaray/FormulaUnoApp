@@ -5,16 +5,19 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.tinchogaray.formulaunoapp.domain.model.RaceSchedule
 import com.tinchogaray.formulaunoapp.domain.schedule.GetYearSchedule
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
+@HiltViewModel
 class ScheduleViewModel @Inject constructor(
     private val getYearSchedule: GetYearSchedule
 ) : ViewModel() {
 
-    val raceSchedule = MutableLiveData<RaceSchedule>()
+    val raceScheduleList = MutableLiveData<List<RaceSchedule>>()
     val isLoading = MutableLiveData<Boolean>()
 
+    /*
     fun onCreate() {
         viewModelScope.launch {
             isLoading.postValue(true)
@@ -28,6 +31,22 @@ class ScheduleViewModel @Inject constructor(
             }
         }
     }
+     */
+
+    fun getYearRaceSchedule() {
+        viewModelScope.launch {
+            isLoading.postValue(true)
+            val result = getYearSchedule("2022")
+
+            if (result.isNotEmpty()) {
+                raceScheduleList.postValue(result)
+                viewModelScope.launch {
+                    isLoading.postValue(false)
+                }
+            }
+        }
+    }
+
 
 
 }

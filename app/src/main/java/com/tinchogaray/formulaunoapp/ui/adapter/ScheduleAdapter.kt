@@ -7,7 +7,7 @@ import com.tinchogaray.formulaunoapp.R
 import com.tinchogaray.formulaunoapp.domain.model.RaceSchedule
 import com.tinchogaray.formulaunoapp.ui.viewholder.ScheduleViewHolder
 
-class ScheduleAdapter(private val scheduleRaceList: List<RaceSchedule>) : RecyclerView.Adapter<ScheduleViewHolder>() {
+class ScheduleAdapter(private var scheduleRaceList: List<RaceSchedule>) : RecyclerView.Adapter<ScheduleViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ScheduleViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
@@ -21,4 +21,7 @@ class ScheduleAdapter(private val scheduleRaceList: List<RaceSchedule>) : Recycl
 
     override fun getItemCount(): Int = scheduleRaceList.size
 
+    fun setRaceList(scheduleRaceList: List<RaceSchedule>) {
+        this.scheduleRaceList = scheduleRaceList;
+    }
 }

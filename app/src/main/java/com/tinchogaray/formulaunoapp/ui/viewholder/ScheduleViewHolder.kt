@@ -1,6 +1,7 @@
 package com.tinchogaray.formulaunoapp.ui.viewholder
 
 import android.view.View
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.tinchogaray.formulaunoapp.R
@@ -8,7 +9,7 @@ import com.tinchogaray.formulaunoapp.domain.model.RaceSchedule
 
 class ScheduleViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
-    val scheduleRaceImage: TextView = view.findViewById<TextView>(R.id.ivScheduleRace)
+    val scheduleRaceImage: ImageView = view.findViewById<ImageView>(R.id.ivScheduleRace)
     val round: TextView = view.findViewById<TextView>(R.id.tvRound)
     val date: TextView = view.findViewById<TextView>(R.id.tvDate)
     val country: TextView = view.findViewById<TextView>(R.id.tvCountry)
