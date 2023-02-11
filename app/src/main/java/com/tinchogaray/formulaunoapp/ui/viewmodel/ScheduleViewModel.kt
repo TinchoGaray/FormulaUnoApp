@@ -4,6 +4,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.tinchogaray.formulaunoapp.domain.model.RaceSchedule
+import com.tinchogaray.formulaunoapp.domain.schedule.GetAvailableYears
 import com.tinchogaray.formulaunoapp.domain.schedule.GetYearSchedule
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
@@ -11,7 +12,8 @@ import javax.inject.Inject
 
 @HiltViewModel
 class ScheduleViewModel @Inject constructor(
-    private val getYearSchedule: GetYearSchedule
+    private val getYearSchedule: GetYearSchedule,
+    private val getAvailableYears: GetAvailableYears
 ) : ViewModel() {
 
     val raceScheduleList = MutableLiveData<List<RaceSchedule>>()
@@ -47,6 +49,8 @@ class ScheduleViewModel @Inject constructor(
         }
     }
 
-
+    fun getAvailableYears(): List<String> {
+        return this.getAvailableYears.invoke()
+    }
 
 }

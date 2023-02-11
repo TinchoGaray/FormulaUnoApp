@@ -3,7 +3,6 @@ package com.tinchogaray.formulaunoapp.ui.view
 import android.os.Bundle
 import android.widget.ArrayAdapter
 import android.widget.AutoCompleteTextView
-import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
@@ -20,12 +19,13 @@ class ScheduleActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivitySchedulesListBinding
     private lateinit var raceScheduleAdapter: ScheduleAdapter
+    private lateinit var yearAdapter: ArrayAdapter<String>
 
     private val raceScheduleViewModel: ScheduleViewModel by viewModels()
     private var raceSchedule = mutableListOf<RaceSchedule>()
+
     private lateinit var autocomplete: AutoCompleteTextView
-    private lateinit var arrayAdapter: ArrayAdapter<String>
-    private var year = mutableListOf<String>("2022", "2021", "2015")
+    private var year = mutableListOf<String>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,21 +33,29 @@ class ScheduleActivity : AppCompatActivity() {
         setContentView(binding.root)
         setObserver()
         raceScheduleViewModel.getYearRaceSchedule()
+        initDropdown()
         initRecyclerView()
-
-        autocomplete = binding.dropdownYearMenu.autoCompleteYearTxt
-        arrayAdapter = ArrayAdapter(this, R.layout.year_list_item_dropdown, year)
-        autocomplete.setAdapter(arrayAdapter)
-        autocomplete.setOnItemClickListener { parent, view, position, id ->
-            val item = parent.getItemAtPosition(position).toString()
-        }
     }
+
 
     private fun initRecyclerView() {
         raceScheduleAdapter = ScheduleAdapter(raceSchedule)
         with(binding.rvSchedules) {
             layoutManager = LinearLayoutManager(context)
             adapter = raceScheduleAdapter
+        }
+    }
+
+    private fun initDropdown() {
+        with(year) {
+            clear()
+            addAll(raceScheduleViewModel.getAvailableYears())
+        }
+        autocomplete = binding.dropdownYearMenu.autoCompleteYearTxt
+        yearAdapter = ArrayAdapter(this, R.layout.year_list_item_dropdown, year)
+        autocomplete.setAdapter(yearAdapter)
+        autocomplete.setOnItemClickListener { parent, view, position, id ->
+            val item = parent.getItemAtPosition(position).toString()
         }
     }
 
