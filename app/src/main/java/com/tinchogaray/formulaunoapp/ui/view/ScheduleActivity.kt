@@ -32,8 +32,8 @@ class ScheduleActivity : AppCompatActivity() {
         binding = ActivitySchedulesListBinding.inflate(layoutInflater)
         setContentView(binding.root)
         setObserver()
-        raceScheduleViewModel.getYearRaceSchedule()
         initDropdown()
+        getYearRaceSchedule(year.first())
         initRecyclerView()
     }
 
@@ -44,6 +44,7 @@ class ScheduleActivity : AppCompatActivity() {
             layoutManager = LinearLayoutManager(context)
             adapter = raceScheduleAdapter
         }
+
     }
 
     private fun initDropdown() {
@@ -55,8 +56,10 @@ class ScheduleActivity : AppCompatActivity() {
         yearAdapter = ArrayAdapter(this, R.layout.year_list_item_dropdown, year)
         autocomplete.setAdapter(yearAdapter)
         autocomplete.setOnItemClickListener { parent, view, position, id ->
-            val item = parent.getItemAtPosition(position).toString()
+            val year = parent.getItemAtPosition(position).toString()
+            getYearRaceSchedule(year)
         }
+        autocomplete.setText(yearAdapter.getItem(0).toString(), false)
     }
 
     private fun updateRecyclerView(raceScheduleList: List<RaceSchedule>) {
@@ -67,9 +70,14 @@ class ScheduleActivity : AppCompatActivity() {
         raceScheduleAdapter.notifyDataSetChanged()
     }
 
+
     private fun setObserver() {
         raceScheduleViewModel.raceScheduleList.observe(this, Observer {
             updateRecyclerView(it)
         })
+    }
+
+    private fun getYearRaceSchedule(year: String) {
+        raceScheduleViewModel.getYearRaceSchedule(year)
     }
 }

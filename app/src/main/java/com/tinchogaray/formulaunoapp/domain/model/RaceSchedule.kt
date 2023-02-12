@@ -12,11 +12,11 @@ data class RaceSchedule(
     val circuit: CircuitModel,
     val date: String,
     val time: String,
-    val firstPractice: RaceDate,
-    val secondPractice: RaceDate,
+    val firstPractice: RaceDate?,
+    val secondPractice: RaceDate?,
     val thirdPractice: RaceDate?,
     val sprint: RaceDate?,
-    val qualifying: RaceDate
+    val qualifying: RaceDate?
 )
 
 fun RaceScheduleModel.toDomain() = RaceSchedule(season, round, url, raceName, circuit, date, time, firstPractice, secondPractice, thirdPractice, sprint, qualifying)

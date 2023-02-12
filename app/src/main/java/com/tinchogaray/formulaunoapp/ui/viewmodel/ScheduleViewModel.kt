@@ -19,26 +19,10 @@ class ScheduleViewModel @Inject constructor(
     val raceScheduleList = MutableLiveData<List<RaceSchedule>>()
     val isLoading = MutableLiveData<Boolean>()
 
-    /*
-    fun onCreate() {
+    fun getYearRaceSchedule(year: String) {
         viewModelScope.launch {
             isLoading.postValue(true)
-            val result = getYearSchedule("2022")
-
-            if (result.isNotEmpty()) {
-                raceSchedule.postValue(result.first())
-                viewModelScope.launch {
-                    isLoading.postValue(false)
-                }
-            }
-        }
-    }
-     */
-
-    fun getYearRaceSchedule() {
-        viewModelScope.launch {
-            isLoading.postValue(true)
-            val result = getYearSchedule("2022")
+            val result = getYearSchedule(year)
 
             if (result.isNotEmpty()) {
                 raceScheduleList.postValue(result)
