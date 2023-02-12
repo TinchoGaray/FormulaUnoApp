@@ -15,9 +15,10 @@ class ScheduleViewHolder(view: View) : RecyclerView.ViewHolder(view) {
     val country: TextView = view.findViewById<TextView>(R.id.tvCountry)
     val circuitName: TextView = view.findViewById<TextView>(R.id.tvCircuitName)
     val raceName: TextView = view.findViewById<TextView>(R.id.tvRaceName)
+    val countryImage: ImageView = view.findViewById<ImageView>(R.id.ivCountry)
 
     fun render(raceSchedule: RaceSchedule) {
-        round.text = raceSchedule.round
+        round.text = "Round " + raceSchedule.round
         date.text = raceSchedule.date
         country.text = raceSchedule.circuit.location.country
         circuitName.text = raceSchedule.circuit.circuitName
