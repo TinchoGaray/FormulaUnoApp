@@ -13,11 +13,12 @@
         android:layout_marginTop="20dp"
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="10dp"
-        app:cardCornerRadius="50dp"
+        app:cardCornerRadius="30dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:cardBackgroundColor="@color/background_card">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -26,7 +27,9 @@
             <ImageView
                 android:id="@+id/ivScheduleRace"
                 android:layout_width="match_parent"
-                android:layout_height="100dp"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                app:layout_constraintBottom_toTopOf="@+id/tvRound"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -38,6 +41,7 @@
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="12dp"
                 android:textSize="16sp"
+                android:textColor="@color/gray"
                 app:layout_constraintStart_toStartOf="@+id/ivScheduleRace"
                 app:layout_constraintTop_toBottomOf="@+id/ivScheduleRace"
                 tools:text="Round 1" />
@@ -49,6 +53,7 @@
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="12dp"
                 android:textSize="16sp"
+                android:textColor="@color/gray"
                 app:layout_constraintStart_toEndOf="@+id/tvRound"
                 app:layout_constraintTop_toBottomOf="@+id/ivScheduleRace"
                 tools:text="11-13 Oct" />
@@ -57,8 +62,9 @@
                 android:id="@+id/ivCountry"
                 android:layout_width="40dp"
                 android:layout_height="20dp"
-                android:layout_marginTop="15dp"
                 android:layout_marginStart="20dp"
+                android:layout_marginTop="15dp"
+                app:layout_constraintBottom_toBottomOf="@+id/tvCountry"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tvRound" />
 
@@ -69,6 +75,7 @@
                 android:layout_marginTop="15dp"
                 android:layout_marginStart="8dp"
                 android:textSize="30sp"
+                android:textColor="@color/white"
                 app:layout_constraintStart_toEndOf="@+id/ivCountry"
                 app:layout_constraintTop_toBottomOf="@+id/tvRound"
                 tools:text="Japan" />
@@ -79,6 +86,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="36dp"
                 android:textSize="16sp"
+                android:textColor="@color/gray"
                 app:layout_constraintStart_toStartOf="@+id/ivCountry"
                 app:layout_constraintTop_toBottomOf="@+id/tvCountry"
                 tools:text="Japanese Grand Prix" />
@@ -90,10 +98,34 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="30dp"
                 android:textSize="16sp"
+                android:textColor="@color/gray"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="@+id/ivCountry"
                 app:layout_constraintTop_toBottomOf="@+id/tvCircuitName"
                 tools:text="Japanese Grand Prix" />
+
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="34dp"
+                android:layout_height="60dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="24dp"
+                app:layout_constraintBottom_toTopOf="@+id/tvCircuitName"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.965"
+                app:layout_constraintStart_toEndOf="@+id/tvCountry"
+                app:srcCompat="@drawable/ic_baseline_arrow_forward" />
+
+            <ImageView
+                android:id="@+id/imageView4"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:rotation="90"
+                app:layout_constraintBottom_toBottomOf="@+id/tvRound"
+                app:layout_constraintEnd_toStartOf="@+id/tvDate"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@+id/tvRound"
+                app:srcCompat="@drawable/ic_baseline_line" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
