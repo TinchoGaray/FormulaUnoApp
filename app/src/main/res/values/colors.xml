@@ -10,4 +10,6 @@
     <color name="background_card">#1A1A25</color>
     <color name="background">#111118</color>
     <color name="gray">#8A8A90</color>
+    <color name="darkBlack">#19191D</color>
+    <color name="darkGray">#272737</color>
 </resources>

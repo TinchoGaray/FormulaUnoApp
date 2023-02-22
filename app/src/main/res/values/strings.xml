@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">FormulaUnoApp</string>
     <string name="select_year_dropdown">Año</string>
+    <string name="race_highlights">Race highlights</string>
 </resources>

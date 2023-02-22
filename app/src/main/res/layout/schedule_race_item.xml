@@ -29,6 +29,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:adjustViewBounds="true"
+                android:src="@drawable/error_404"
                 app:layout_constraintBottom_toTopOf="@+id/tvRound"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -126,6 +127,27 @@
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toEndOf="@+id/tvRound"
                 app:srcCompat="@drawable/ic_baseline_line" />
+
+            <TextView
+                android:id="@+id/tvHighlights"
+                android:layout_width="98dp"
+                android:layout_height="20dp"
+                android:background="#e10600"
+                android:text="@string/race_highlights"
+                android:textColor="@color/white"
+                app:layout_constraintBottom_toBottomOf="@+id/ivScheduleRace"
+                app:layout_constraintStart_toEndOf="@+id/ivPlayHighlights"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="1.0" />
+
+            <ImageView
+                android:id="@+id/ivPlayHighlights"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:background="#e10600"
+                app:layout_constraintBottom_toBottomOf="@+id/tvHighlights"
+                app:layout_constraintStart_toStartOf="@+id/ivScheduleRace"
+                app:srcCompat="@drawable/ic_baseline_play_arrow" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
