@@ -94,6 +94,9 @@ class ScheduleViewHolder(view: View) : RecyclerView.ViewHolder(view) {
             "Abu Dhabi Grand Prix" -> {
                 scheduleRaceImage.setImageResource(R.drawable.abu_dhabi_grand_prix)
             }
+            else -> {
+                scheduleRaceImage.setImageResource(R.drawable.error_404)
+            }
         }
     }
 }
