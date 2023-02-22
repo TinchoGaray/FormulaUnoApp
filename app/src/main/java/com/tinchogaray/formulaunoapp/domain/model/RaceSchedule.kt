@@ -11,7 +11,7 @@ data class RaceSchedule(
     val raceName: String,
     val circuit: CircuitModel,
     val date: String,
-    val time: String,
+    val time: String?,
     val firstPractice: RaceDate?,
     val secondPractice: RaceDate?,
     val thirdPractice: RaceDate?,
