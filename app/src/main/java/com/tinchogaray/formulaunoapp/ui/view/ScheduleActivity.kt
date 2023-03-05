@@ -5,6 +5,7 @@ import android.widget.ArrayAdapter
 import android.widget.AutoCompleteTextView
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.isVisible
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.tinchogaray.formulaunoapp.R
@@ -75,9 +76,18 @@ class ScheduleActivity : AppCompatActivity() {
         raceScheduleViewModel.raceScheduleList.observe(this, Observer {
             updateRecyclerView(it)
         })
+
+        raceScheduleViewModel.isLoading.observe(this, Observer {
+            binding.progressBar.isVisible = it
+            scrollToTop()
+        })
     }
 
     private fun getYearRaceSchedule(year: String) {
         raceScheduleViewModel.getYearRaceSchedule(year)
+    }
+
+    private fun scrollToTop() {
+        binding.rvSchedules.layoutManager?.scrollToPosition(0)
     }
 }
