@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/itemNews"
+        android:icon="@drawable/ic_baseline_news"
+        android:title="News"
+        />
+
+    <item
+        android:id="@+id/itemStanding"
+        android:icon="@drawable/ic_baseline_standing"
+        android:title="Standings"
+        />
+
+    <item
+        android:id="@+id/itemRaces"
+        android:icon="@drawable/ic_baseline_races"
+        android:title="Races"
+        />
+
+</menu>

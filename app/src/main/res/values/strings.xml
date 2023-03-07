@@ -2,4 +2,6 @@
     <string name="app_name">FormulaUnoApp</string>
     <string name="select_year_dropdown">Año</string>
     <string name="race_highlights">Race highlights</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
