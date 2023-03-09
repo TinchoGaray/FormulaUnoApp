@@ -13,43 +13,9 @@ import dagger.hilt.android.AndroidEntryPoint
 class HomeActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityHomeBinding
+    private lateinit var navigation: BottomNavigationView
 
-    lateinit var navigation: BottomNavigationView
-
-    private val mOnNavMenu = BottomNavigationView.OnNavigationItemSelectedListener { item ->
-
-        when (item.itemId) {
-            R.id.itemNews -> {
-                supportFragmentManager.commit {
-                    replace<NewsFragment>(R.id.frameContainer)
-                    setReorderingAllowed(true)
-                    addToBackStack("replacement")
-                }
-                return@OnNavigationItemSelectedListener true
-            }
-
-            R.id.itemStanding -> {
-                supportFragmentManager.commit {
-                    replace<StandingFragment>(R.id.frameContainer)
-                    setReorderingAllowed(true)
-                    addToBackStack("replacement")
-                }
-                return@OnNavigationItemSelectedListener true
-            }
-
-            R.id.itemRaces -> {
-                supportFragmentManager.commit {
-                    replace<RacesFragment>(R.id.frameContainer)
-                    setReorderingAllowed(true)
-                    addToBackStack("replacement")
-                }
-                return@OnNavigationItemSelectedListener true
-            }
-        }
-
-        false
-    }
-
+    private val navMenuListener = createNavMenuListener()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -57,12 +23,54 @@ class HomeActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         navigation = binding.navMenu
-        navigation.setOnNavigationItemSelectedListener(mOnNavMenu)
+        navigation.setOnNavigationItemSelectedListener(navMenuListener)
 
+        initFragment()
+    }
+
+    private fun initFragment() {
         supportFragmentManager.commit {
             replace<NewsFragment>(R.id.frameContainer)
             setReorderingAllowed(true)
             addToBackStack("replacement")
         }
+    }
+
+    private fun createNavMenuListener(): BottomNavigationView.OnNavigationItemSelectedListener {
+
+        return BottomNavigationView.OnNavigationItemSelectedListener { item ->
+
+            when (item.itemId) {
+                R.id.itemNews -> {
+                    supportFragmentManager.commit {
+                        replace<NewsFragment>(R.id.frameContainer)
+                        setReorderingAllowed(true)
+                        addToBackStack("replacement")
+                    }
+                    return@OnNavigationItemSelectedListener true
+                }
+
+                R.id.itemStanding -> {
+                    supportFragmentManager.commit {
+                        replace<StandingFragment>(R.id.frameContainer)
+                        setReorderingAllowed(true)
+                        addToBackStack("replacement")
+                    }
+                    return@OnNavigationItemSelectedListener true
+                }
+
+                R.id.itemRaces -> {
+                    supportFragmentManager.commit {
+                        replace<RacesFragment>(R.id.frameContainer)
+                        setReorderingAllowed(true)
+                        addToBackStack("replacement")
+                    }
+                    return@OnNavigationItemSelectedListener true
+                }
+            }
+
+            false
+        }
+
     }
 }
