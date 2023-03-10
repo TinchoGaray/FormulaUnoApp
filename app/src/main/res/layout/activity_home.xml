@@ -19,8 +19,8 @@
         app:menu="@menu/navegation_menu"
         android:layout_gravity="bottom"
         android:background="@color/blackMenu"
-        app:itemIconTint="@color/redItemMenu"
-        app:itemTextColor="@color/redItemMenu"
+        app:itemIconTint="@drawable/bottom_nav_icon_color"
+        app:itemTextColor="@drawable/bottom_nav_text_color"
         app:layout_behavior="com.google.android.material.behavior.HideBottomViewOnScrollBehavior"
         />
 

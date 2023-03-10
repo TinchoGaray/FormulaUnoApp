@@ -13,5 +13,8 @@
     <color name="darkBlack">#19191D</color>
     <color name="darkGray">#272737</color>
     <color name="blackMenu">#0C0C11</color>
-    <color name="redItemMenu">#AC0804</color>
+    <color name="bottom_nav_selected_text">#AC0804</color>
+    <color name="bottom_nav_unselected_text">#68686C</color>
+    <color name="bottom_nav_selected_icon">#AC0804</color>
+    <color name="bottom_nav_unselected_icon">#68686C</color>
 </resources>
