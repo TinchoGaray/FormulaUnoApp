@@ -7,6 +7,7 @@ import androidx.fragment.app.replace
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.tinchogaray.formulaunoapp.R
 import com.tinchogaray.formulaunoapp.databinding.ActivityHomeBinding
+import com.tinchogaray.formulaunoapp.ui.listener.BottomNavMenuListener
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -15,7 +16,7 @@ class HomeActivity : AppCompatActivity() {
     private lateinit var binding: ActivityHomeBinding
     private lateinit var navigation: BottomNavigationView
 
-    private val navMenuListener = createNavMenuListener()
+    private val navMenuListener = BottomNavMenuListener().createNavMenuListener(supportFragmentManager)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,43 +35,5 @@ class HomeActivity : AppCompatActivity() {
             setReorderingAllowed(true)
             addToBackStack("replacement")
         }
-    }
-
-    private fun createNavMenuListener(): BottomNavigationView.OnNavigationItemSelectedListener {
-
-        return BottomNavigationView.OnNavigationItemSelectedListener { item ->
-
-            when (item.itemId) {
-                R.id.itemNews -> {
-                    supportFragmentManager.commit {
-                        replace<NewsFragment>(R.id.frameContainer)
-                        setReorderingAllowed(true)
-                        addToBackStack("replacement")
-                    }
-                    return@OnNavigationItemSelectedListener true
-                }
-
-                R.id.itemStanding -> {
-                    supportFragmentManager.commit {
-                        replace<StandingFragment>(R.id.frameContainer)
-                        setReorderingAllowed(true)
-                        addToBackStack("replacement")
-                    }
-                    return@OnNavigationItemSelectedListener true
-                }
-
-                R.id.itemRaces -> {
-                    supportFragmentManager.commit {
-                        replace<RacesFragment>(R.id.frameContainer)
-                        setReorderingAllowed(true)
-                        addToBackStack("replacement")
-                    }
-                    return@OnNavigationItemSelectedListener true
-                }
-            }
-
-            false
-        }
-
     }
 }
