@@ -97,10 +97,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:layout_marginBottom="30dp"
                 android:textSize="16sp"
                 android:textColor="@color/gray"
-                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="@+id/ivCountry"
                 app:layout_constraintTop_toBottomOf="@+id/tvCircuitName"
                 tools:text="Japanese Grand Prix" />
@@ -149,6 +147,53 @@
                 app:layout_constraintStart_toStartOf="@+id/ivScheduleRace"
                 app:srcCompat="@drawable/ic_baseline_play_arrow" />
 
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="30dp"
+                android:layout_marginBottom="30dp"
+                app:cardBackgroundColor="@color/darkGray"
+                app:cardCornerRadius="30dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/ivCountry"
+                app:layout_constraintTop_toBottomOf="@+id/tvRaceName">
+
+                    <LinearLayout
+                        android:id="@+id/containerRevealResults"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <ImageView
+                            android:id="@+id/ivRevealResults"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            app:srcCompat="@drawable/ic_baseline_standing" />
+
+                        <TextView
+                            android:id="@+id/tvRevealResults"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="5dp"
+                            android:text="Reveal results"
+                            android:textColor="@color/gray"
+                            android:textSize="16sp"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                    </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
