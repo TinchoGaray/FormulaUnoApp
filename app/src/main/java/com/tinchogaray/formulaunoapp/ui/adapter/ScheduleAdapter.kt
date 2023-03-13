@@ -7,11 +7,17 @@ import com.tinchogaray.formulaunoapp.R
 import com.tinchogaray.formulaunoapp.domain.model.RaceSchedule
 import com.tinchogaray.formulaunoapp.ui.viewholder.ScheduleViewHolder
 
-class ScheduleAdapter(private var scheduleRaceList: List<RaceSchedule>) : RecyclerView.Adapter<ScheduleViewHolder>() {
+class ScheduleAdapter(
+    private var scheduleRaceList: List<RaceSchedule>,
+    private val clickListener: (RaceSchedule) -> Unit) : RecyclerView.Adapter<ScheduleViewHolder>() {
+
+    private lateinit var highlightsListener: OnHighlightsClickListener
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ScheduleViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
-        return ScheduleViewHolder(layoutInflater.inflate(R.layout.schedule_race_item, parent, false))
+        return ScheduleViewHolder(layoutInflater.inflate(R.layout.schedule_race_item, parent, false)) {
+            clickListener(scheduleRaceList[it])
+        }
     }
 
     override fun onBindViewHolder(holder: ScheduleViewHolder, position: Int) {
@@ -20,8 +26,10 @@ class ScheduleAdapter(private var scheduleRaceList: List<RaceSchedule>) : Recycl
     }
 
     override fun getItemCount(): Int = scheduleRaceList.size
+}
 
-    fun setRaceList(scheduleRaceList: List<RaceSchedule>) {
-        this.scheduleRaceList = scheduleRaceList;
-    }
+interface OnHighlightsClickListener {
+
+    fun highlightsClick(raceName: String, year: String)
+
 }

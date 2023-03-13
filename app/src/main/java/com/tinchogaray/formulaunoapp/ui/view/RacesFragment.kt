@@ -8,12 +8,14 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.AutoCompleteTextView
+import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.tinchogaray.formulaunoapp.R
+import com.tinchogaray.formulaunoapp.data.network.youtube.RaceHighlightsDelegate
 import com.tinchogaray.formulaunoapp.databinding.FragmentRacesBinding
 import com.tinchogaray.formulaunoapp.domain.model.RaceSchedule
 import com.tinchogaray.formulaunoapp.ui.adapter.ScheduleAdapter
@@ -45,7 +47,7 @@ class RacesFragment : Fragment() {
         setObserver()
         initDropdown(view.context)
         getYearRaceSchedule(year.first())
-        initRecyclerView()
+        initRecyclerView(view.context)
     }
 
     override fun onDestroyView() {
@@ -53,8 +55,10 @@ class RacesFragment : Fragment() {
         _binding = null
     }
 
-    private fun initRecyclerView() {
-        raceScheduleAdapter = ScheduleAdapter(raceSchedule)
+    private fun initRecyclerView(viewContext: Context) {
+        raceScheduleAdapter = ScheduleAdapter(raceSchedule) {
+            startActivity(RaceHighlightsDelegate().openYoutube(it.raceName, it.season))
+        }
         with(binding.rvSchedules) {
             layoutManager = LinearLayoutManager(context)
             adapter = raceScheduleAdapter

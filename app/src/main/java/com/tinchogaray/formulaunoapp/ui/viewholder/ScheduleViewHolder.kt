@@ -6,9 +6,13 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.tinchogaray.formulaunoapp.R
 import com.tinchogaray.formulaunoapp.data.network.flag.FlagRenderDelegate
+import com.tinchogaray.formulaunoapp.data.network.youtube.RaceHighlightsDelegate
 import com.tinchogaray.formulaunoapp.domain.model.RaceSchedule
+import com.tinchogaray.formulaunoapp.ui.adapter.OnHighlightsClickListener
 
-class ScheduleViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+class ScheduleViewHolder(view: View, clickListener: (Int) -> Unit) : RecyclerView.ViewHolder(view) {
+
+    private lateinit var item: RaceSchedule
 
     private val flagRenderDelegate = FlagRenderDelegate()
 
@@ -19,6 +23,13 @@ class ScheduleViewHolder(view: View) : RecyclerView.ViewHolder(view) {
     val circuitName: TextView = view.findViewById<TextView>(R.id.tvCircuitName)
     val raceName: TextView = view.findViewById<TextView>(R.id.tvRaceName)
     val countryImage: ImageView = view.findViewById<ImageView>(R.id.ivCountry)
+    val highlights: TextView = view.findViewById<TextView>(R.id.tvHighlights)
+
+    init {
+        highlights.setOnClickListener {
+            clickListener(adapterPosition)
+        }
+    }
 
     fun render(raceSchedule: RaceSchedule) {
         round.text = "Round " + raceSchedule.round

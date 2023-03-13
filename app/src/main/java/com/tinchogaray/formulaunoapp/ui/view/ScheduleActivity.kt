@@ -3,6 +3,7 @@ package com.tinchogaray.formulaunoapp.ui.view
 import android.os.Bundle
 import android.widget.ArrayAdapter
 import android.widget.AutoCompleteTextView
+import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
@@ -40,7 +41,9 @@ class ScheduleActivity : AppCompatActivity() {
 
 
     private fun initRecyclerView() {
-        raceScheduleAdapter = ScheduleAdapter(raceSchedule)
+        raceScheduleAdapter = ScheduleAdapter(raceSchedule) {
+            Toast.makeText(this, it.raceName , Toast.LENGTH_LONG).show()
+        }
         with(binding.rvSchedules) {
             layoutManager = LinearLayoutManager(context)
             adapter = raceScheduleAdapter
