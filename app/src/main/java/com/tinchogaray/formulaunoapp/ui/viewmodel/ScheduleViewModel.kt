@@ -1,8 +1,10 @@
 package com.tinchogaray.formulaunoapp.ui.viewmodel
 
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.tinchogaray.formulaunoapp.data.network.youtube.RaceHighlightsDelegate
 import com.tinchogaray.formulaunoapp.domain.model.RaceSchedule
 import com.tinchogaray.formulaunoapp.domain.schedule.GetAvailableYears
 import com.tinchogaray.formulaunoapp.domain.schedule.GetYearSchedule
@@ -37,4 +39,7 @@ class ScheduleViewModel @Inject constructor(
         return this.getAvailableYears.invoke()
     }
 
+    fun setOnHighlightsClickListener(fragment: Fragment, raceSchedule: RaceSchedule) {
+        fragment.startActivity(RaceHighlightsDelegate().openYoutube(raceSchedule.raceName, raceSchedule.season))
+    }
 }

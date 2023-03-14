@@ -47,7 +47,7 @@ class RacesFragment : Fragment() {
         setObserver()
         initDropdown(view.context)
         getYearRaceSchedule(year.first())
-        initRecyclerView(view.context)
+        initRecyclerView()
     }
 
     override fun onDestroyView() {
@@ -55,9 +55,9 @@ class RacesFragment : Fragment() {
         _binding = null
     }
 
-    private fun initRecyclerView(viewContext: Context) {
+    private fun initRecyclerView() {
         raceScheduleAdapter = ScheduleAdapter(raceSchedule) {
-            startActivity(RaceHighlightsDelegate().openYoutube(it.raceName, it.season))
+            raceScheduleViewModel.setOnHighlightsClickListener(this, it)
         }
         with(binding.rvSchedules) {
             layoutManager = LinearLayoutManager(context)
