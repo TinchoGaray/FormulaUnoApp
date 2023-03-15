@@ -2,6 +2,7 @@ package com.tinchogaray.formulaunoapp.ui.viewholder
 
 import android.view.View
 import android.widget.ImageView
+import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.tinchogaray.formulaunoapp.R
@@ -16,14 +17,14 @@ class ScheduleViewHolder(view: View, clickListener: (Int) -> Unit) : RecyclerVie
 
     private val flagRenderDelegate = FlagRenderDelegate()
 
-    val scheduleRaceImage: ImageView = view.findViewById<ImageView>(R.id.ivScheduleRace)
-    val round: TextView = view.findViewById<TextView>(R.id.tvRound)
-    val date: TextView = view.findViewById<TextView>(R.id.tvDate)
-    val country: TextView = view.findViewById<TextView>(R.id.tvCountry)
-    val circuitName: TextView = view.findViewById<TextView>(R.id.tvCircuitName)
-    val raceName: TextView = view.findViewById<TextView>(R.id.tvRaceName)
-    val countryImage: ImageView = view.findViewById<ImageView>(R.id.ivCountry)
-    val highlights: TextView = view.findViewById<TextView>(R.id.tvHighlights)
+    private val scheduleRaceImage: ImageView = view.findViewById<ImageView>(R.id.ivScheduleRace)
+    private val round: TextView = view.findViewById<TextView>(R.id.tvRound)
+    private val date: TextView = view.findViewById<TextView>(R.id.tvDate)
+    private val country: TextView = view.findViewById<TextView>(R.id.tvCountry)
+    private val circuitName: TextView = view.findViewById<TextView>(R.id.tvCircuitName)
+    private val raceName: TextView = view.findViewById<TextView>(R.id.tvRaceName)
+    private val countryImage: ImageView = view.findViewById<ImageView>(R.id.ivCountry)
+    private val highlights: LinearLayout = view.findViewById<LinearLayout>(R.id.highlightsContainer)
 
     init {
         highlights.setOnClickListener {
