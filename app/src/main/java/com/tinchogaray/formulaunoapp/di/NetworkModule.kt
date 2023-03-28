@@ -1,6 +1,7 @@
 package com.tinchogaray.formulaunoapp.di
 
 import com.tinchogaray.formulaunoapp.data.network.driver.DriversApiClient
+import com.tinchogaray.formulaunoapp.data.network.result.ResultApiClient
 import com.tinchogaray.formulaunoapp.data.network.schedule.ScheduleApiClient
 import dagger.Module
 import dagger.Provides
@@ -34,4 +35,11 @@ object NetworkModule {
     fun provideScheduleApiClient(retrofit: Retrofit): ScheduleApiClient {
         return retrofit.create(ScheduleApiClient::class.java)
     }
+
+    @Singleton
+    @Provides
+    fun providesResultApiClient(retrofit: Retrofit): ResultApiClient {
+        return retrofit.create(ResultApiClient::class.java)
+    }
+
 }

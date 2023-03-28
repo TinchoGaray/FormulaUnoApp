@@ -14,5 +14,5 @@ data class ResultModel(
     val laps: String,
     val status: String,
     @SerializedName("Time") val finalTime: ResultTimeModel,
-    @SerializedName("FastestLap") val fastestLap: ConstructorModel
+    @SerializedName("FastestLap") val fastestLap: FastestLapModel
 )

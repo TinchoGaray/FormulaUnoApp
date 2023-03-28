@@ -12,5 +12,4 @@ interface ResultApiClient {
         @Path("year") year: String,
         @Path("round") round: String
     ): Response<ResultResponse>
-
 }
