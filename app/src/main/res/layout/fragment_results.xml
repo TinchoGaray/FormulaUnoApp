@@ -23,7 +23,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="25dp"
-        android:text="TextView"
+        android:text="2019"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/ivRace"
         app:layout_constraintTop_toTopOf="@+id/ivRace" />
@@ -51,7 +51,7 @@
 
 
         <ImageView
-            android:id="@+id/imageView4"
+            android:id="@+id/ivLineSeparator"
             android:layout_width="20dp"
             android:layout_height="20dp"
             android:rotation="90"
@@ -63,8 +63,45 @@
             android:layout_height="wrap_content"
             android:textSize="16sp"
             android:textColor="@color/gray"
-            tools:text="11-13 Oct" />
+            android:text="11-13 Oct"/>
 
     </LinearLayout>
+
+    <TextView
+        android:id="@+id/tvTitleRaceResults"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Race Results"
+        android:textSize="30sp"
+        app:layout_constraintTop_toBottomOf="@+id/ivRace"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="18dp"
+        android:layout_marginStart="16dp"
+        />
+
+    <TextView
+        android:id="@+id/tvTitlePodium"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Podium"
+        android:textSize="24sp"
+        app:layout_constraintTop_toBottomOf="@+id/tvTitleRaceResults"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="18dp"
+        android:layout_marginStart="16dp"
+        />
+
+    <TextView
+        android:id="@+id/tvTitleFastestLap"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="FastestLap"
+        android:textSize="24sp"
+        app:layout_constraintTop_toBottomOf="@+id/tvTitlePodium"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="18dp"
+        android:layout_marginStart="16dp"
+        />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
