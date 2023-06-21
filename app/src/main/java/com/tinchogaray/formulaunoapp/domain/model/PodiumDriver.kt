@@ -4,5 +4,6 @@ data class PodiumDriver(
     val name: String,
     val points: String,
     val constructorId: String,
-    val time: String
+    val time: String,
+    val position: String
 )
