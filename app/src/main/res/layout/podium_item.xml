@@ -19,7 +19,7 @@
             android:id="@+id/ivCharactIcon"
             android:layout_width="20dp"
             android:layout_height="20dp"
-            app:srcCompat="@drawable/ic_baseline_races" />
+            app:srcCompat="@drawable/ic_number_first_position" />
 
         <TextView
             android:id="@+id/tvTime"

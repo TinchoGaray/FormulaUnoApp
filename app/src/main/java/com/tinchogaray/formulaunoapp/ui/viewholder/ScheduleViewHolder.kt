@@ -13,8 +13,6 @@ import com.tinchogaray.formulaunoapp.ui.adapter.OnHighlightsClickListener
 
 class ScheduleViewHolder(view: View, clickListener: (Int) -> Unit) : RecyclerView.ViewHolder(view) {
 
-    private lateinit var item: RaceSchedule
-
     private val flagRenderDelegate = FlagRenderDelegate()
 
     private val scheduleRaceImage: ImageView = view.findViewById<ImageView>(R.id.ivScheduleRace)

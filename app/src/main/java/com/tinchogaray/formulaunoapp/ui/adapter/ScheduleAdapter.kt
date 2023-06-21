@@ -9,7 +9,8 @@ import com.tinchogaray.formulaunoapp.ui.viewholder.ScheduleViewHolder
 
 class ScheduleAdapter(
     private var scheduleRaceList: List<RaceSchedule>,
-    private val clickListener: (RaceSchedule) -> Unit) : RecyclerView.Adapter<ScheduleViewHolder>() {
+    private val clickListener: (RaceSchedule) -> Unit
+) : RecyclerView.Adapter<ScheduleViewHolder>() {
 
     private lateinit var highlightsListener: OnHighlightsClickListener
 
