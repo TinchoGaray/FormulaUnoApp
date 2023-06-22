@@ -7,15 +7,17 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.tinchogaray.formulaunoapp.databinding.FragmentResultsBinding
+import com.tinchogaray.formulaunoapp.domain.model.PodiumDriver
 import com.tinchogaray.formulaunoapp.domain.model.RaceResult
 import com.tinchogaray.formulaunoapp.domain.model.RaceResultMapper
 import com.tinchogaray.formulaunoapp.ui.adapter.PodiumAdapter
 import com.tinchogaray.formulaunoapp.ui.viewmodel.ResultsViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
-private const val YEAR_BUNDLE = "param_year"
-private const val ROUND_BUNDLE = "param_round"
+const val YEAR_BUNDLE = "param_year"
+const val ROUND_BUNDLE = "param_round"
 
 @AndroidEntryPoint
 class ResultsFragment : Fragment() {
@@ -29,6 +31,7 @@ class ResultsFragment : Fragment() {
 
     private val resultsViewModel: ResultsViewModel by viewModels()
     private var raceResult = mutableListOf<RaceResult>()
+    private var podiumDriverList: List<PodiumDriver>? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -46,6 +49,8 @@ class ResultsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setObserver()
+        getPodium()
+        initRecyclerView()
     }
 
     override fun onDestroyView() {
@@ -60,19 +65,34 @@ class ResultsFragment : Fragment() {
     }
 
     private fun initRecyclerView() {
-        val podiumDriverList = RaceResultMapper().fromRaceResultToPodiumDriver(raceResult.first())
-        podiumAdapter = PodiumAdapter(podiumDriverList) {
+        podiumDriverList?.let {
+            podiumAdapter = PodiumAdapter(it) {
 
+            }
+        }
+
+        with(binding.rvPodium) {
+            layoutManager = LinearLayoutManager(context)
+            adapter = podiumAdapter
         }
     }
 
     private fun updateRecyclerViews(result: RaceResult) {
+        podiumDriverList = RaceResultMapper().fromRaceResultToPodiumDriver(result)
         with(raceResult) {
             clear()
             add(result)
         }
         podiumAdapter.notifyDataSetChanged()
     }
+
+    private fun getPodium() {
+        if (!year.isNullOrEmpty() && !round.isNullOrEmpty()) {
+            resultsViewModel.getResult(year!!, round!!)
+            podiumDriverList = RaceResultMapper().fromRaceResultToPodiumDriver(raceResult.first())
+        }
+    }
+
 
     companion object {
         @JvmStatic

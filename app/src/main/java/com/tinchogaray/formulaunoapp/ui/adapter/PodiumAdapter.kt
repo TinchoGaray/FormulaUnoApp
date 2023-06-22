@@ -8,21 +8,21 @@ import com.tinchogaray.formulaunoapp.domain.model.PodiumDriver
 import com.tinchogaray.formulaunoapp.ui.viewholder.PodiumViewHolder
 
 class PodiumAdapter(
-    private val podiumRaceList: List<PodiumDriver>,
+    private val podiumDriverList: List<PodiumDriver>,
     private val clickListener: (PodiumDriver) -> Unit
 ) :  RecyclerView.Adapter<PodiumViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PodiumViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
         return PodiumViewHolder(layoutInflater.inflate(R.layout.podium_item, parent, false)) {
-            clickListener(podiumRaceList[it])
+            clickListener(podiumDriverList[it])
         }
     }
 
     override fun onBindViewHolder(holder: PodiumViewHolder, position: Int) {
-        val item = podiumRaceList[position]
+        val item = podiumDriverList[position]
         holder.render(item)
     }
 
-    override fun getItemCount(): Int = podiumRaceList.size
+    override fun getItemCount(): Int = podiumDriverList.size
 }
