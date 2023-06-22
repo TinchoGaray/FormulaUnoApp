@@ -7,11 +7,12 @@ import javax.inject.Inject
 
 class ResultService @Inject constructor(private val api: ResultApiClient) {
 
-    suspend fun getRaceResult(year: String, round: String): List<RaceResultModel> {
+    suspend fun getRaceResult(year: String, round: String): RaceResultModel {
         return withContext(Dispatchers.IO) {
             val response = api.getRaceResult(year, round)
             val body = response.body()
-            body?.mrDataResult?.raceTable?.races ?: emptyList()
+            //TODO: Cambiar el non null
+            body?.mrDataResult?.raceTable?.races!!.first()
         }
     }
 }

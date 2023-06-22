@@ -20,7 +20,7 @@ class PodiumViewHolder(view: View, clickListener: (Int) -> Unit) : RecyclerView.
     private val driverName: TextView = view.findViewById<TextView>(R.id.tvDriver)
 
     fun render(podiumDriver: PodiumDriver) {
-        driverName.text = podiumDriver.name
+        driverName.text = podiumDriver.name + " " + podiumDriver.lastName
         totalPoints.text = podiumDriver.points
         totalTime.text = podiumDriver.time
         renderConstructorImage(podiumDriver.constructorId)

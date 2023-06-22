@@ -6,7 +6,7 @@ import javax.inject.Inject
 
 class GetResultForYearAndRound @Inject constructor(private val repository: ResultsRepository) {
 
-    suspend operator fun invoke(year: String, round: String): List<RaceResult> {
+    suspend operator fun invoke(year: String, round: String): RaceResult {
         return repository.getRaceResultFromApi(year, round)
     }
 }

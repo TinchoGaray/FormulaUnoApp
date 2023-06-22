@@ -7,9 +7,9 @@ import javax.inject.Inject
 
 class ResultsRepository @Inject constructor(private val serviceApi: ResultService ) {
 
-    suspend fun getRaceResultFromApi(year: String, round: String): List<RaceResult> {
+    suspend fun getRaceResultFromApi(year: String, round: String): RaceResult {
         val results = serviceApi.getRaceResult(year, round)
 
-        return results.map { it.toDomain() }
+        return results.toDomain()
     }
 }
