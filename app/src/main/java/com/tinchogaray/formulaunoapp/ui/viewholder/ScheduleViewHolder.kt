@@ -4,14 +4,16 @@ import android.view.View
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
+import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.tinchogaray.formulaunoapp.R
 import com.tinchogaray.formulaunoapp.data.network.flag.FlagRenderDelegate
-import com.tinchogaray.formulaunoapp.data.network.youtube.RaceHighlightsDelegate
 import com.tinchogaray.formulaunoapp.domain.model.RaceSchedule
-import com.tinchogaray.formulaunoapp.ui.adapter.OnHighlightsClickListener
 
-class ScheduleViewHolder(view: View, clickListener: (Int) -> Unit) : RecyclerView.ViewHolder(view) {
+class ScheduleViewHolder(view: View,
+                         highlightsClickListener: (Int) -> Unit,
+                         resultClickListener: (Int) -> Unit
+) : RecyclerView.ViewHolder(view) {
 
     private val flagRenderDelegate = FlagRenderDelegate()
 
@@ -23,10 +25,14 @@ class ScheduleViewHolder(view: View, clickListener: (Int) -> Unit) : RecyclerVie
     private val raceName: TextView = view.findViewById<TextView>(R.id.tvRaceName)
     private val countryImage: ImageView = view.findViewById<ImageView>(R.id.ivCountry)
     private val highlights: LinearLayout = view.findViewById<LinearLayout>(R.id.highlightsContainer)
+    private val results: CardView = view.findViewById<CardView>(R.id.cardRevealResults)
 
     init {
         highlights.setOnClickListener {
-            clickListener(adapterPosition)
+            highlightsClickListener(adapterPosition)
+        }
+        results.setOnClickListener {
+            resultClickListener(adapterPosition)
         }
     }
 

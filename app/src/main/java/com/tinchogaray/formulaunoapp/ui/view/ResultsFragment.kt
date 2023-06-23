@@ -31,7 +31,7 @@ class ResultsFragment : Fragment() {
 
     private val resultsViewModel: ResultsViewModel by viewModels()
     private var raceResult = mutableListOf<RaceResult>()
-    private var podiumDriverList: List<PodiumDriver>? = null
+    private var podiumDriverList = mutableListOf<PodiumDriver>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -65,12 +65,9 @@ class ResultsFragment : Fragment() {
     }
 
     private fun initRecyclerView() {
-        podiumDriverList?.let {
-            podiumAdapter = PodiumAdapter(it) {
+        podiumAdapter = PodiumAdapter(podiumDriverList) {
 
-            }
         }
-
         with(binding.rvPodium) {
             layoutManager = LinearLayoutManager(context)
             adapter = podiumAdapter
@@ -89,10 +86,9 @@ class ResultsFragment : Fragment() {
     private fun getPodium() {
         if (!year.isNullOrEmpty() && !round.isNullOrEmpty()) {
             resultsViewModel.getResult(year!!, round!!)
-            podiumDriverList = RaceResultMapper().fromRaceResultToPodiumDriver(raceResult.first())
+            //podiumDriverList = RaceResultMapper().fromRaceResultToPodiumDriver(raceResult.first())
         }
     }
-
 
     companion object {
         @JvmStatic

@@ -41,9 +41,6 @@ class ScheduleActivity : AppCompatActivity() {
 
 
     private fun initRecyclerView() {
-        raceScheduleAdapter = ScheduleAdapter(raceSchedule) {
-            Toast.makeText(this, it.raceName , Toast.LENGTH_LONG).show()
-        }
         with(binding.rvSchedules) {
             layoutManager = LinearLayoutManager(context)
             adapter = raceScheduleAdapter

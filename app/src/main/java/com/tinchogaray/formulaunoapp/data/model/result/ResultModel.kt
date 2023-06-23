@@ -13,6 +13,6 @@ data class ResultModel(
     val grid: String,
     val laps: String,
     val status: String,
-    @SerializedName("Time") val finalTime: ResultTimeModel,
+    @SerializedName("Time") val finalTime: ResultTimeModel?,
     @SerializedName("FastestLap") val fastestLap: FastestLapModel
 )

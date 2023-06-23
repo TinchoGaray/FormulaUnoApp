@@ -9,15 +9,21 @@ import com.tinchogaray.formulaunoapp.ui.viewholder.ScheduleViewHolder
 
 class ScheduleAdapter(
     private var scheduleRaceList: List<RaceSchedule>,
-    private val clickListener: (RaceSchedule) -> Unit
+    private val highlightsClickListener: (RaceSchedule) -> Unit,
+    private val resultClickListener: (RaceSchedule) -> Unit,
 ) : RecyclerView.Adapter<ScheduleViewHolder>() {
 
     private lateinit var highlightsListener: OnHighlightsClickListener
 
+    //TODO cambiar la llamada a los on click listener
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ScheduleViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
-        return ScheduleViewHolder(layoutInflater.inflate(R.layout.schedule_race_item, parent, false)) {
-            clickListener(scheduleRaceList[it])
+        return ScheduleViewHolder(layoutInflater.inflate(R.layout.schedule_race_item, parent, false),
+            ({
+                highlightsClickListener(scheduleRaceList[it])
+            })
+        ) {
+            resultClickListener(scheduleRaceList[it])
         }
     }
 

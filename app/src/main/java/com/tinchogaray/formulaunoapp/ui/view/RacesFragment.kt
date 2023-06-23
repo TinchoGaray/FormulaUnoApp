@@ -56,14 +56,18 @@ class RacesFragment : Fragment() {
     }
 
     private fun initRecyclerView() {
-        raceScheduleAdapter = ScheduleAdapter(raceSchedule) {
+        raceScheduleAdapter = ScheduleAdapter(raceSchedule,
+            ({
             raceScheduleViewModel.setOnHighlightsClickListener(this, it)
+            })
+        ) {
+            raceScheduleViewModel.setOnResultClickListener(this, it)
         }
+
         with(binding.rvSchedules) {
             layoutManager = LinearLayoutManager(context)
             adapter = raceScheduleAdapter
         }
-
     }
 
     private fun initDropdown(context: Context) {
