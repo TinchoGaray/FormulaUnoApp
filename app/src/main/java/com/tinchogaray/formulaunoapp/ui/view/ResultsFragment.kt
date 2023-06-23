@@ -75,10 +75,9 @@ class ResultsFragment : Fragment() {
     }
 
     private fun updateRecyclerViews(result: RaceResult) {
-        podiumDriverList = RaceResultMapper().fromRaceResultToPodiumDriver(result)
-        with(raceResult) {
+        with(podiumDriverList) {
             clear()
-            add(result)
+            addAll(RaceResultMapper().fromRaceResultToPodiumDriver(result))
         }
         podiumAdapter.notifyDataSetChanged()
     }
@@ -86,7 +85,6 @@ class ResultsFragment : Fragment() {
     private fun getPodium() {
         if (!year.isNullOrEmpty() && !round.isNullOrEmpty()) {
             resultsViewModel.getResult(year!!, round!!)
-            //podiumDriverList = RaceResultMapper().fromRaceResultToPodiumDriver(raceResult.first())
         }
     }
 

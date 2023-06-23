@@ -9,7 +9,10 @@ import com.tinchogaray.formulaunoapp.domain.model.PodiumDriver
 import com.tinchogaray.formulaunoapp.ui.util.delegate.ConstructorRenderDelegate
 import com.tinchogaray.formulaunoapp.ui.util.delegate.IconColorRenderDelegate
 
-class PodiumViewHolder(view: View, clickListener: (Int) -> Unit) : RecyclerView.ViewHolder(view) {
+class PodiumViewHolder(
+    view: View,
+    clickListener: (Int) -> Unit
+) : RecyclerView.ViewHolder(view) {
 
     private val positionIcon: ImageView = view.findViewById<ImageView>(R.id.ivCharactIcon)
     private val totalTime: TextView = view.findViewById<TextView>(R.id.tvTime)
@@ -25,7 +28,6 @@ class PodiumViewHolder(view: View, clickListener: (Int) -> Unit) : RecyclerView.
         totalTime.text = podiumDriver.time
         renderConstructorImage(podiumDriver.constructorId)
         renderIconColors(podiumDriver.constructorId)
-
     }
 
     fun renderConstructorImage(constructorId: String) {
