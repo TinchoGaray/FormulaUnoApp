@@ -24,7 +24,7 @@ class PodiumViewHolder(
 
     fun render(podiumDriver: PodiumDriver) {
         driverName.text = podiumDriver.name + " " + podiumDriver.lastName
-        totalPoints.text = podiumDriver.points
+        totalPoints.text = podiumDriver.points + "pts"
         totalTime.text = podiumDriver.time
         renderConstructorImage(podiumDriver.constructorId)
         renderIconColors(podiumDriver.constructorId)
