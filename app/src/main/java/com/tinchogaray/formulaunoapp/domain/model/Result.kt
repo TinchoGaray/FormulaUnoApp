@@ -15,4 +15,4 @@ data class Result (
     val fastestLap: FastestLap
 )
 
-fun ResultModel.toDomain() = Result(number, position, points, driver.toDomain(), constructor.toDomain(), grid, laps, status, finalTime!!.toDomain(), fastestLap.toDomain())
+fun ResultModel.toDomain() = Result(number, position, points, driver.toDomain(), constructor.toDomain(), grid, laps, status, finalTime?.toDomain() ?: ResultTime("-", "-"), fastestLap.toDomain())
